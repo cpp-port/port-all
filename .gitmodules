@@ -1,0 +1,69 @@
+[submodule "bzip2"]
+	path = bzip2
+	url = ../bzip2
+[submodule "cairo"]
+	path = cairo
+	url = ../cairo
+[submodule "clientchannels"]
+	path = clientchannels
+	url = ../clientchannels
+[submodule "expat"]
+	path = expat
+	url = ../expat
+[submodule "freeimage"]
+	path = freeimage
+	url = ../freeimage
+[submodule "freetype"]
+	path = freetype
+	url = ../freetype
+[submodule "iconv"]
+	path = iconv
+	url = ../iconv
+[submodule "id3lib"]
+	path = id3lib
+	url = ../id3lib
+[submodule "idn"]
+	path = idn
+	url = ../idn
+[submodule "jpeg"]
+	path = jpeg
+	url = ../jpeg
+[submodule "jxr"]
+	path = jxr
+	url = ../jxr
+[submodule "libmpg123"]
+	path = libmpg123
+	url = ../libmpg123
+[submodule "nanosvg"]
+	path = nanosvg
+	url = ../nanosvg
+[submodule "openexr"]
+	path = openexr
+	url = ../openexr
+[submodule "openjpeg"]
+	path = openjpeg
+	url = ../openjpeg
+[submodule "pcre"]
+	path = pcre
+	url = ../pcre
+[submodule "pixman"]
+	path = pixman
+	url = ../pixman
+[submodule "png"]
+	path = png
+	url = ../png
+[submodule "rawlite"]
+	path = rawlite
+	url = ../rawlite
+[submodule "sqlite"]
+	path = sqlite
+	url = ../sqlite
+[submodule "strophe"]
+	path = strophe
+	url = ../strophe
+[submodule "webp"]
+	path = webp
+	url = ../webp
+[submodule "zlib"]
+	path = zlib
+	url = ../zlib
