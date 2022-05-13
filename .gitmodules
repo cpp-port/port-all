@@ -70,3 +70,9 @@
 [submodule "debugbreak"]
 	path = debugbreak
 	url = ../../scottt/debugbreak
+[submodule "glm"]
+	path = glm
+	url = ../../g-truc/glm
+[submodule "assimp"]
+	path = assimp
+	url = ../../assimp/assimp
