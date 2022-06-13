@@ -58,6 +58,7 @@ public:
 
 public:
 
+  ID3_Tag();
   ID3_Tag(ID3_Reader * preader = NULL);
   ID3_Tag(const ID3_Tag &tag);
   virtual ~ID3_Tag();
