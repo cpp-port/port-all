@@ -69,10 +69,10 @@
 	url = ../zlib
 [submodule "debugbreak"]
 	path = debugbreak
-	url = ../debugbreak
+	url = ../../scottt/debugbreak
 [submodule "glm"]
 	path = glm
-	url = ../glm
+	url = ../../g-truc/glm
 [submodule "assimp"]
 	path = assimp
-	url = ../assimp
+	url = ../../assimp/assimp
