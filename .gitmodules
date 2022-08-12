@@ -73,3 +73,9 @@
 [submodule "tiff4"]
 	path = tiff4
 	url = ../tiff4
+[submodule "glm"]
+	path = glm
+	url = ../../g-truc/glm
+[submodule "assimp"]
+	path = assimp
+	url = ../../assimp/assimp
