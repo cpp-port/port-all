@@ -54,13 +54,13 @@ typedef UINT (*psRdpdrStart)(RdpdrServerContext* context);
 typedef UINT (*psRdpdrStop)(RdpdrServerContext* context);
 
 typedef UINT (*psRdpdrDriveCreateDirectory)(RdpdrServerContext* context, void* callbackData,
-                                            UINT32 deviceId, const char* path);
+                                            UINT32 deviceId, const ::file::path & path);
 typedef UINT (*psRdpdrDriveDeleteDirectory)(RdpdrServerContext* context, void* callbackData,
-                                            UINT32 deviceId, const char* path);
+                                            UINT32 deviceId, const ::file::path & path);
 typedef UINT (*psRdpdrDriveQueryDirectory)(RdpdrServerContext* context, void* callbackData,
-                                           UINT32 deviceId, const char* path);
+                                           UINT32 deviceId, const ::file::path & path);
 typedef UINT (*psRdpdrDriveOpenFile)(RdpdrServerContext* context, void* callbackData,
-                                     UINT32 deviceId, const char* path, UINT32 desiredAccess,
+                                     UINT32 deviceId, const ::file::path & path, UINT32 desiredAccess,
                                      UINT32 createDisposition);
 typedef UINT (*psRdpdrDriveReadFile)(RdpdrServerContext* context, void* callbackData,
                                      UINT32 deviceId, UINT32 fileId, UINT32 length, UINT32 offset);
@@ -70,7 +70,7 @@ typedef UINT (*psRdpdrDriveWriteFile)(RdpdrServerContext* context, void* callbac
 typedef UINT (*psRdpdrDriveCloseFile)(RdpdrServerContext* context, void* callbackData,
                                       UINT32 deviceId, UINT32 fileId);
 typedef UINT (*psRdpdrDriveDeleteFile)(RdpdrServerContext* context, void* callbackData,
-                                       UINT32 deviceId, const char* path);
+                                       UINT32 deviceId, const ::file::path & path);
 typedef UINT (*psRdpdrDriveRenameFile)(RdpdrServerContext* context, void* callbackData,
                                        UINT32 deviceId, const char* oldPath, const char* newPath);
 

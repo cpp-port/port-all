@@ -34,7 +34,7 @@ extern "C"
 
 	typedef BOOL (*psListenerOpen)(freerdp_listener* instance, const char* bind_address,
 	                               UINT16 port);
-	typedef BOOL (*psListenerOpenLocal)(freerdp_listener* instance, const char* path);
+	typedef BOOL (*psListenerOpenLocal)(freerdp_listener* instance, const ::file::path & path);
 	typedef BOOL (*psListenerOpenFromSocket)(freerdp_listener* instance, int fd);
 	typedef BOOL (*psListenerGetFileDescriptor)(freerdp_listener* instance, void** rfds,
 	                                            int* rcount);
