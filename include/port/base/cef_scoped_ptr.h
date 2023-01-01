@@ -89,7 +89,7 @@
 //
 // Notice that if you do not call Pass() when returning from PassThru(), or
 // when invoking TakesOwnership(), the code will not compile because scopers
-// are not copyable; they only implement move semantics which require calling
+// are not copyable; they only implement transfer semantics which require calling
 // the Pass() function to signify a destructive transfer of state. CreateFoo()
 // is different though because we are constructing a temporary on the return
 // line and thus can avoid needing to call Pass().
@@ -241,8 +241,8 @@ class scoped_ptr_impl {
   template <typename U, typename V>
   scoped_ptr_impl(scoped_ptr_impl<U, V>* other)
       : data_(other->release(), other->get_deleter()) {
-    // We do not support move-only deleters.  We could modify our move
-    // emulation to have base::subtle::move() and base::subtle::forward()
+    // We do not support transfer-only deleters.  We could modify our transfer
+    // emulation to have base::subtle::transfer() and base::subtle::forward()
     // functions that are imperfect emulations of their C++11 equivalents,
     // but until there's a requirement, just assume deleters are copyable.
   }
@@ -250,7 +250,7 @@ class scoped_ptr_impl {
   template <typename U, typename V>
   void TakeState(scoped_ptr_impl<U, V>* other) {
     // See comment in templated constructor above regarding lack of support
-    // for move-only deleters.
+    // for transfer-only deleters.
     reset(other->release());
     get_deleter() = other->get_deleter();
   }
@@ -346,7 +346,7 @@ class scoped_ptr_impl {
 // comments inside scoped_ptr_impl<> for details.
 //
 // Current implementation targets having a strict subset of  C++11's
-// unique_ptr<> features. Known deficiencies include not supporting move-only
+// unique_ptr<> features. Known deficiencies include not supporting transfer-only
 // deleteres, function pointers as deleters, and deleters with reference
 // types.
 template <class T, class D = base::DefaultDeleter<T>>
@@ -374,10 +374,10 @@ class scoped_ptr {
   // convertible type and deleter.
   //
   // IMPLEMENTATION NOTE: C++11 unique_ptr<> keeps this constructor distinct
-  // from the normal move constructor. By C++11 20.7.1.2.1.21, this constructor
+  // from the normal transfer constructor. By C++11 20.7.1.2.1.21, this constructor
   // has different post-conditions if D is a reference type. Since this
   // implementation does not support deleters with reference type,
-  // we do not need a separate move constructor allowing us to avoid one
+  // we do not need a separate transfer constructor allowing us to avoid one
   // use of SFINAE. You only need to care about this if you modify the
   // implementation of scoped_ptr.
   template <typename U, typename V>
@@ -385,17 +385,17 @@ class scoped_ptr {
     COMPILE_ASSERT(!base::is_array<U>::value, U_cannot_be_an_array);
   }
 
-  // Constructor.  Move constructor for C++03 move emulation of this type.
+  // Constructor.  Move constructor for C++03 transfer emulation of this type.
   scoped_ptr(RValue rvalue) : impl_(&rvalue.object->impl_) {}
 
   // operator=.  Allows assignment from a scoped_ptr rvalue for a convertible
   // type and deleter.
   //
   // IMPLEMENTATION NOTE: C++11 unique_ptr<> keeps this operator= distinct from
-  // the normal move assignment operator. By C++11 20.7.1.2.3.4, this templated
-  // form has different requirements on for move-only Deleters. Since this
-  // implementation does not support move-only Deleters, we do not need a
-  // separate move assignment operator allowing us to avoid one use of SFINAE.
+  // the normal transfer assignment operator. By C++11 20.7.1.2.3.4, this templated
+  // form has different requirements on for transfer-only Deleters. Since this
+  // implementation does not support transfer-only Deleters, we do not need a
+  // separate transfer assignment operator allowing us to avoid one use of SFINAE.
   // You only need to care about this if you modify the implementation of
   // scoped_ptr.
   template <typename U, typename V>
@@ -515,10 +515,10 @@ class scoped_ptr<T[], D> {
   //   NOT use implicit_cast<Base*>() to upcast the static type of the array.
   explicit scoped_ptr(element_type* array) : impl_(array) {}
 
-  // Constructor.  Move constructor for C++03 move emulation of this type.
+  // Constructor.  Move constructor for C++03 transfer emulation of this type.
   scoped_ptr(RValue rvalue) : impl_(&rvalue.object->impl_) {}
 
-  // operator=.  Move operator= for C++03 move emulation of this type.
+  // operator=.  Move operator= for C++03 transfer emulation of this type.
   scoped_ptr& operator=(RValue rhs) {
     impl_.TakeState(&rhs.object->impl_);
     return *this;

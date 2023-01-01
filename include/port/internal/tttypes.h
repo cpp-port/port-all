@@ -491,7 +491,7 @@ FT_BEGIN_HEADER
   /*    caret_slope_denominator :: Rise of the caret slope, typically set  */
   /*                               to 0 for non-italic fonts.              */
   /*                                                                       */
-  /*    caret_offset            :: Offset in pixels to move the caret for  */
+  /*    caret_offset            :: Offset in pixels to transfer the caret for  */
   /*                               proper positioning.                     */
   /*                                                                       */
   /*    min_origin_SB           :: Minimum of horiBearingX (resp.          */

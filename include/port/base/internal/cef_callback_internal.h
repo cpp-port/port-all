@@ -112,7 +112,7 @@ class CallbackBase {
   InvokeFuncStorage polymorphic_invoke_;
 };
 
-// A helper template to determine if given type is non-const move-only-type,
+// A helper template to determine if given type is non-const transfer-only-type,
 // i.e. if a value of the given type should be passed via .Pass() in a
 // destructive way.
 template <typename T>
@@ -183,7 +183,7 @@ struct CallbackParamTraits<T[], false> {
 //
 // For these types, the ForwardType must not be a const reference, or a
 // reference.  A const reference is inappropriate, and would break const
-// correctness, because we are implementing a destructive move.  A non-const
+// correctness, because we are implementing a destructive transfer.  A non-const
 // reference cannot be used with temporaries which means the result of a
 // function or a cast would not be usable with Callback<> or Bind().
 template <typename T>
@@ -195,7 +195,7 @@ struct CallbackParamTraits<T, true> {
 // CallbackForward() is a very limited simulation of C++11's std::forward()
 // used by the Callback/Bind system for a set of movable-but-not-copyable
 // types.  It is needed because forwarding a movable-but-not-copyable
-// argument to another function requires us to invoke the proper move
+// argument to another function requires us to invoke the proper transfer
 // operator to create a rvalue version of the type.  The supported types are
 // whitelisted below as overloads of the CallbackForward() function. The
 // default template compiles out to be a no-op.

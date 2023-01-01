@@ -386,7 +386,7 @@ class OwnedWrapper {
 // It is needed to get around the fact that Bind() takes a const reference to
 // all its arguments.  Because Bind() takes a const reference to avoid
 // unnecessary copies, it is incompatible with movable-but-not-copyable
-// types; doing a destructive "move" of the type into Bind() would violate
+// types; doing a destructive "transfer" of the type into Bind() would violate
 // the const correctness.
 //
 // This conundrum cannot be solved without either C++11 rvalue references or
@@ -394,7 +394,7 @@ class OwnedWrapper {
 // types and movable-but-not-copyable types.  Thus we introduce a wrapper type
 // that is copyable to transmit the correct type information down into
 // BindState<>. Ignoring const in this type makes sense because it is only
-// created when we are explicitly trying to do a destructive move.
+// created when we are explicitly trying to do a destructive transfer.
 //
 // Two notes:
 //  1) PassedWrapper supports any type that has a "Pass()" function.

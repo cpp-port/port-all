@@ -38,18 +38,18 @@
 // the Chromium header first to avoid type conflicts.
 #elif defined(USING_CHROMIUM_INCLUDES)
 // When building CEF include the Chromium header directly.
-#include "base/move.h"
+#include "base/transfer.h"
 #else  // !USING_CHROMIUM_INCLUDES
 // The following is substantially similar to the Chromium implementation.
 // If the Chromium implementation diverges the below implementation should be
 // updated to match.
 
-// Macro with the boilerplate that makes a type move-only in C++03.
+// Macro with the boilerplate that makes a type transfer-only in C++03.
 //
 // USAGE
 //
 // This macro should be used instead of DISALLOW_COPY_AND_ASSIGN to create
-// a "move-only" type.  Unlike DISALLOW_COPY_AND_ASSIGN, this macro should be
+// a "transfer-only" type.  Unlike DISALLOW_COPY_AND_ASSIGN, this macro should be
 // the first line in a class declaration.
 //
 // A class using this macro must call .Pass() (or somehow be an r-value already)
@@ -59,9 +59,9 @@
 //   * Used as the right-hand side of an assignment
 //   * Returned from a function
 //
-// Each class will still need to define their own "move constructor" and "move
-// operator=" to make this useful.  Here's an example of the macro, the move
-// constructor, and the move operator= from the scoped_ptr class:
+// Each class will still need to define their own "transfer constructor" and "transfer
+// operator=" to make this useful.  Here's an example of the macro, the transfer
+// constructor, and the transfer operator= from the scoped_ptr class:
 //
 //  template <typename T>
 //  class scoped_ptr {
@@ -78,7 +78,7 @@
 //
 // For consistency, the second parameter to the macro should always be RValue
 // unless you have a strong reason to do otherwise.  It is only exposed as a
-// macro parameter so that the move constructor and move operator= don't look
+// macro parameter so that the transfer constructor and transfer operator= don't look
 // like they're using a phantom type.
 //
 //
@@ -109,17 +109,17 @@
 //
 //   * a private struct named "RValue"
 //   * a user-defined conversion "operator RValue()"
-//   * a "move constructor" and "move operator=" that take the RValue& as
+//   * a "transfer constructor" and "transfer operator=" that take the RValue& as
 //     their sole parameter.
 //
-// Only r-values will trigger this sequence and execute our "move constructor"
-// or "move operator=."  L-values will match the private copy constructor and
+// Only r-values will trigger this sequence and execute our "transfer constructor"
+// or "transfer operator=."  L-values will match the private copy constructor and
 // operator= first giving a "private in this context" error.  This combination
-// gives us a move-only type.
+// gives us a transfer-only type.
 //
 // For signaling a destructive transfer of data from an l-value, we provide a
 // method named Pass() which creates an r-value for the current instance
-// triggering the move constructor or move operator=.
+// triggering the transfer constructor or transfer operator=.
 //
 // Other ways to get r-values is to use the result of an expression like a
 // function call.
@@ -155,18 +155,18 @@
 // class should ever declare it or use it in a parameter.
 //
 // It is tempting to want to use the RValue type in function parameters, but
-// excluding the limited usage here for the move constructor and move
+// excluding the limited usage here for the transfer constructor and transfer
 // operator=, doing so would mean that the function could take both r-values
 // and l-values equially which is unexpected.  See COMPARED To Boost.Move for
 // more details.
 //
 // An alternate, and incorrect, implementation of the RValue class used by
-// Boost.Move makes RValue a fieldless child of the move-only type. RValue&
+// Boost.Move makes RValue a fieldless child of the transfer-only type. RValue&
 // is then used in place of RValue in the various operators.  The RValue& is
 // "created" by doing *reinterpret_cast<RValue*>(this).  This has the appeal
 // of never creating a temporary RValue struct even with optimizations
 // disabled.  Also, by virtue of inheritance you can treat the RValue
-// reference as if it were the move-only type itself.  Unfortunately,
+// reference as if it were the transfer-only type itself.  Unfortunately,
 // using the result of this reinterpret_cast<> is actually undefined behavior
 // due to C++98 5.2.10.7. In certain compilers (e.g., NaCl) the optimizer
 // will generate non-working code.
@@ -188,7 +188,7 @@
 // COMPARED TO C++11
 //
 // In C++11, you would implement this functionality using an r-value reference
-// and our .Pass() method would be replaced with a call to std::move().
+// and our .Pass() method would be replaced with a call to std::transfer().
 //
 // This emulation also has a deficiency where it uses up the single
 // user-defined conversion allowed by C++ during initialization.  This can
@@ -202,7 +202,7 @@
 // COMPARED TO Boost.Move
 //
 // Our implementation similar to Boost.Move, but we keep the RValue struct
-// private to the move-only type, and we don't use the reinterpret_cast<> hack.
+// private to the transfer-only type, and we don't use the reinterpret_cast<> hack.
 //
 // In Boost.Move, RValue is the boost::rv<> template.  This type can be used
 // when writing APIs like:
@@ -225,13 +225,13 @@
 //
 // Since we have no need for writing such APIs yet, our implementation keeps
 // RValue private and uses a .Pass() method to do the conversion instead of
-// trying to write a version of "std::move()." Writing an API like std::move()
+// trying to write a version of "std::transfer()." Writing an API like std::transfer()
 // would require the RValue struct to be public.
 //
 //
 // CAVEATS
 //
-// If you include a move-only type as a field inside a class that does not
+// If you include a transfer-only type as a field inside a class that does not
 // explicitly declare a copy constructor, the containing class's implicit
 // copy constructor will change from Containing(const Containing&) to
 // Containing(Containing&).  This can cause some unexpected errors.

@@ -48,7 +48,7 @@ typedef struct {
 #define _cairo_reference_count_dec(RC) _cairo_atomic_int_dec (&(RC)->ref_count)
 #define _cairo_reference_count_dec_and_test(RC) _cairo_atomic_int_dec_and_test (&(RC)->ref_count)
 
-#define CAIRO_REFERENCE_COUNT_INIT(RC, VALUE) ((RC)->ref_count = (VALUE))
+#define CAIRO_REFERENCE_COUNT_INIT(RC, PAYLOAD) ((RC)->ref_count = (PAYLOAD))
 
 #define CAIRO_REFERENCE_COUNT_GET_VALUE(RC) _cairo_atomic_int_get (&(RC)->ref_count)
 

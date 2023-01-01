@@ -1979,7 +1979,7 @@ cairo_get_group_target (cairo_t *cr);
 
 /**
  * cairo_path_data_type_t:
- * @CAIRO_PATH_MOVE_TO: A move-to operation, since 1.0
+ * @CAIRO_PATH_MOVE_TO: A transfer-to operation, since 1.0
  * @CAIRO_PATH_LINE_TO: A line-to operation, since 1.0
  * @CAIRO_PATH_CURVE_TO: A curve-to operation, since 1.0
  * @CAIRO_PATH_CLOSE_PATH: A close-path operation, since 1.0

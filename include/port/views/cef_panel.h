@@ -107,7 +107,7 @@ class CefPanel : public CefView {
 
   ///
   // Move the child View to the specified |index|. A negative value for |index|
-  // will move the View to the end.
+  // will transfer the View to the end.
   ///
   /*--cef()--*/
   virtual void ReorderChildView(CefRefPtr<CefView> view, int index) = 0;

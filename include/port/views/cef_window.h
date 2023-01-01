@@ -268,7 +268,7 @@ class CefWindow : public CefPanel {
   virtual void SendKeyPress(int key_code, uint32 event_flags) = 0;
 
   ///
-  // Simulate a mouse move. The mouse cursor will be moved to the specified
+  // Simulate a mouse transfer. The mouse cursor will be moved to the specified
   // (screen_x, screen_y) position. This method is exposed primarily for testing
   // purposes.
   ///

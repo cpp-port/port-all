@@ -481,14 +481,14 @@ FT_BEGIN_HEADER
    *   FT_Outline_MoveToFunc
    *
    * @description:
-   *   A function pointer type used to describe the signature of a 'move to'
+   *   A function pointer type used to describe the signature of a 'transfer to'
    *   function during outline walking/decomposition.
    *
-   *   A 'move to' is emitted to start a new contour in an outline.
+   *   A 'transfer to' is emitted to start a new contour in an outline.
    *
    * @input:
    *   to ::
-   *     A pointer to the target point of the 'move to'.
+   *     A pointer to the target point of the 'transfer to'.
    *
    *   user ::
    *     A typeless pointer, which is passed from the caller of the
@@ -616,7 +616,7 @@ FT_BEGIN_HEADER
    *
    * @fields:
    *   move_to ::
-   *     The 'move to' emitter.
+   *     The 'transfer to' emitter.
    *
    *   line_to ::
    *     The segment emitter.

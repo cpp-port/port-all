@@ -833,7 +833,7 @@ bilinear_pad_repeat_get_scanline_bounds (int32_t         source_image_width,
  *  weight_bottom       - weight of the bottom row for interpolation
  *  vx                  - initial position for fetching the first pair of
  *                        pixels from the source buffer
- *  unit_x              - position increment needed to move to the next pair
+ *  unit_x              - position increment needed to transfer to the next pair
  *                        of pixels
  *  max_vx              - image size as a fixed point value, can be used for
  *                        implementing NORMAL repeat (when it is supported)

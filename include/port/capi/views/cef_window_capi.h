@@ -254,7 +254,7 @@ typedef struct _cef_window_t {
                                      uint32 event_flags);
 
   ///
-  // Simulate a mouse move. The mouse cursor will be moved to the specified
+  // Simulate a mouse transfer. The mouse cursor will be moved to the specified
   // (screen_x, screen_y) position. This function is exposed primarily for
   // testing purposes.
   ///

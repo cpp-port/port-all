@@ -108,7 +108,7 @@ typedef struct _cef_panel_t {
 
   ///
   // Move the child View to the specified |index|. A negative value for |index|
-  // will move the View to the end.
+  // will transfer the View to the end.
   ///
   void(CEF_CALLBACK* reorder_child_view)(struct _cef_panel_t* self,
                                          struct _cef_view_t* view,

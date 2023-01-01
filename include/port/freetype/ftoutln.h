@@ -89,7 +89,7 @@ FT_BEGIN_HEADER
    *
    * @description:
    *   Walk over an outline's structure to decompose it into individual
-   *   segments and Bezier arcs.  This function also emits 'move to'
+   *   segments and Bezier arcs.  This function also emits 'transfer to'
    *   operations to indicate the start of new contours in the outline.
    *
    * @input:
@@ -110,7 +110,7 @@ FT_BEGIN_HEADER
    *   FreeType error code.  0~means success.
    *
    * @note:
-   *   A contour that contains a single point only is represented by a 'move
+   *   A contour that contains a single point only is represented by a 'transfer
    *   to' operation followed by 'line to' to the same point.  In most cases,
    *   it is best to filter this out before using the outline for stroking
    *   purposes (otherwise it would result in a visible dot when round caps

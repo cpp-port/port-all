@@ -90,7 +90,7 @@ extern "C"
 	 */
 	FREERDP_API BYTE* ringbuffer_ensure_linear_write(RingBuffer* rb, size_t sz);
 
-	/** move ahead the write head in case some byte were written directly by using
+	/** transfer ahead the write head in case some byte were written directly by using
 	 * a pointer retrieved via ringbuffer_ensure_linear_write(). This function is
 	 * used to commit the written bytes. The provided size should not exceed the
 	 * size ensured by ringbuffer_ensure_linear_write()
@@ -111,7 +111,7 @@ extern "C"
 	 */
 	FREERDP_API int ringbuffer_peek(const RingBuffer* rb, DataChunk chunks[2], size_t sz);
 
-	/** move ahead the read head in case some byte were read using ringbuffer_peek()
+	/** transfer ahead the read head in case some byte were read using ringbuffer_peek()
 	 * This function is used to commit the bytes that were effectively consumed.
 	 *
 	 * @param rb the ring buffer

@@ -115,7 +115,7 @@ typedef struct _cef_render_handler_t {
                                     int show);
 
   ///
-  // Called when the browser wants to move or resize the popup widget. |rect|
+  // Called when the browser wants to transfer or resize the popup widget. |rect|
   // contains the new location and size in view coordinates.
   ///
   void(CEF_CALLBACK* on_popup_size)(struct _cef_render_handler_t* self,
@@ -175,7 +175,7 @@ typedef struct _cef_render_handler_t {
 
   ///
   // Called when the web view wants to update the mouse cursor during a drag &
-  // drop operation. |operation| describes the allowed operation (none, move,
+  // drop operation. |operation| describes the allowed operation (none, transfer,
   // copy, link).
   ///
   void(CEF_CALLBACK* update_drag_cursor)(struct _cef_render_handler_t* self,

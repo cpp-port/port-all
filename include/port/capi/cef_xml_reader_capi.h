@@ -218,7 +218,7 @@ typedef struct _cef_xml_reader_t {
   int(CEF_CALLBACK* get_line_number)(struct _cef_xml_reader_t* self);
 
   // Attribute nodes are not traversed by default. The below functions can be
-  // used to move the cursor to an attribute node. move_to_carrying_element()
+  // used to transfer the cursor to an attribute node. move_to_carrying_element()
   // can be called afterwards to return the cursor to the carrying element. The
   // depth of an attribute node will be 1 + the depth of the carrying element.
 

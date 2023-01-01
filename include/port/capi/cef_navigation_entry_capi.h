@@ -92,7 +92,7 @@ typedef struct _cef_navigation_entry_t {
       struct _cef_navigation_entry_t* self);
 
   ///
-  // Returns the transition type which indicates what the user did to move to
+  // Returns the transition type which indicates what the user did to transfer to
   // this page from the previous page.
   ///
   cef_transition_type_t(CEF_CALLBACK* get_transition_type)(

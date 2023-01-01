@@ -394,7 +394,7 @@ struct ovectl_ratemanage2_arg {
 /**
  * Old interface to querying bitrate management settings.
  *
- * Deprecated after move to bit-reservoir style management in 1.1 rendered
+ * Deprecated after transfer to bit-reservoir style management in 1.1 rendered
  * this interface partially obsolete.
 
  * \deprecated Please use \ref OV_ECTL_RATEMANAGE2_GET instead.
@@ -405,7 +405,7 @@ struct ovectl_ratemanage2_arg {
 /**
  * Old interface to modifying bitrate management settings.
  *
- *  deprecated after move to bit-reservoir style management in 1.1 rendered
+ *  deprecated after transfer to bit-reservoir style management in 1.1 rendered
  *  this interface partially obsolete.
  *
  * \deprecated Please use \ref OV_ECTL_RATEMANAGE2_SET instead.
@@ -416,7 +416,7 @@ struct ovectl_ratemanage2_arg {
 /**
  * Old interface to setting average-bitrate encoding mode.
  *
- * Deprecated after move to bit-reservoir style management in 1.1 rendered
+ * Deprecated after transfer to bit-reservoir style management in 1.1 rendered
  * this interface partially obsolete.
  *
  *  \deprecated Please use \ref OV_ECTL_RATEMANAGE2_SET instead.
@@ -427,7 +427,7 @@ struct ovectl_ratemanage2_arg {
 /**
  * Old interface to setting bounded-bitrate encoding modes.
  *
- * deprecated after move to bit-reservoir style management in 1.1 rendered
+ * deprecated after transfer to bit-reservoir style management in 1.1 rendered
  * this interface partially obsolete.
  *
  *  \deprecated Please use \ref OV_ECTL_RATEMANAGE2_SET instead.

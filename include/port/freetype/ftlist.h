@@ -169,7 +169,7 @@ FT_BEGIN_HEADER
    *   list ::
    *     A pointer to the parent list.
    *   node ::
-   *     The node to move.
+   *     The node to transfer.
    */
   FT_EXPORT( void )
   FT_List_Up( FT_List      list,

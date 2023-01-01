@@ -1185,7 +1185,7 @@ FT_BEGIN_HEADER
    *     The face is 'tricky', this is, it always needs the font format's
    *     native hinting engine to get a reasonable result.  A typical example
    *     is the old Chinese font `mingli.ttf` (but not `mingliu.ttc`) that
-   *     uses TrueType bytecode instructions to move and scale all of its
+   *     uses TrueType bytecode instructions to transfer and scale all of its
    *     subglyphs.
    *
    *     It is not possible to auto-hint such fonts using

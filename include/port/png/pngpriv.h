@@ -614,7 +614,7 @@
 #endif
 
 /* End of memory model/platform independent support */
-/* End of 1.5.0beta36 move from pngconf.h */
+/* End of 1.5.0beta36 transfer from pngconf.h */
 
 /* CONSTANTS and UTILITY MACROS
  * These are used internally by libpng and not exposed in the API

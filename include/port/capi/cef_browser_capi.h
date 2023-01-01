@@ -589,7 +589,7 @@ typedef struct _cef_browser_host_t {
       int clickCount);
 
   ///
-  // Send a mouse move event to the browser. The |x| and |y| coordinates are
+  // Send a mouse transfer event to the browser. The |x| and |y| coordinates are
   // relative to the upper-left corner of the view.
   ///
   void(CEF_CALLBACK* send_mouse_move_event)(

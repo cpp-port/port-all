@@ -216,7 +216,7 @@ enum mysql_option {
 };
 
 /**
-  @todo remove the "extension", move st_mysql_options completely
+  @todo remove the "extension", transfer st_mysql_options completely
   out of mysql.h
 */
 struct st_mysql_options_extention;

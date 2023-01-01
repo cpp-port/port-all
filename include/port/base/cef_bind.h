@@ -81,7 +81,7 @@
 //
 // TODO(ajwong): We might be able to avoid this now, but need to test.
 //
-// It is possible to move most of the COMPILE_ASSERT asserts into BindState<>,
+// It is possible to transfer most of the COMPILE_ASSERT asserts into BindState<>,
 // but it feels a little nicer to have the asserts here so people do not
 // need to crack open bind_internal.h.  On the other hand, it makes Bind()
 // harder to read.
