@@ -319,7 +319,7 @@ extern "C"
 	                                            SHADOW_MSG_OUT* msg, void* lParam);
 	FREERDP_API int shadow_client_boardcast_quit(rdpShadowServer* server, int nExitCode);
 
-	FREERDP_API int shadow_encoder_preferred_fps(rdpShadowEncoder* encoder);
+	FREERDP_API int shadow_encoder_preferred_per_second(rdpShadowEncoder* encoder);
 	FREERDP_API UINT32 shadow_encoder_inflight_frames(rdpShadowEncoder* encoder);
 
 	FREERDP_API BOOL shadow_screen_resize(rdpShadowScreen* screen);
