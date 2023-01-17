@@ -79,3 +79,6 @@
 [submodule "assimp"]
 	path = assimp
 	url = ../../assimp/assimp
+[submodule "libarchive"]
+	path = libarchive
+	url = ../libarchive
