@@ -82,3 +82,6 @@
 [submodule "libarchive"]
 	path = libarchive
 	url = ../libarchive
+[submodule "libmysql"]
+	path = libmysql
+	url = ../libmysql
