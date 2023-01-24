@@ -85,3 +85,6 @@
 [submodule "libmysql"]
 	path = libmysql
 	url = ../libmysql
+[submodule "zstd"]
+	path = zstd
+	url = ../zstd.git
