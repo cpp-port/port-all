@@ -1,4 +1,4 @@
-// Created by camilo on 2023-01-24 09:45 <3ThomasBorregaardSørensen!!
+﻿// Created by camilo on 2023-01-24 09:45 <3ThomasBorregaardSørensen!!
 #pragma once
 
 #define MAX_INDEXES 255
@@ -50,7 +50,7 @@
     #error "Environment not 32 or 64-bit."
 #endif
 
-#if THIS_IS_32_BIT_ENVIRONMENT
+#ifdef THIS_IS_32_BIT_ENVIRONMENT
 #define SIZEOF_CHARP 4
 #else
 #define SIZEOF_CHARP 8
