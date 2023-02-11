@@ -1,4 +1,4 @@
-/* zconf.h -- configuration of the zlib compression library
+﻿/* zconf.h -- configuration of the zlib compression library
  * Copyright (C) 1995-2016 Jean-loup Gailly, Mark Adler
  * For conditions of distribution and use, see copyright notice in zlib.h
  */
@@ -8,7 +8,7 @@
 #ifndef ZCONF_H
 #define ZCONF_H
 
-#include "third_private_c.h"
+///#include "third_private_c.h"
 
 /*
  * If you *really* need a unique prefix for all types and library functions,
