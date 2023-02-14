@@ -8,7 +8,13 @@
 #ifndef ZCONF_H
 #define ZCONF_H
 
-///#include "third_private_c.h"
+
+#if !defined(ZLIB_DLL) && defined(WIN32) && !defined(CUBE)
+
+#define ZLIB_DLL
+
+#endif
+
 
 /*
  * If you *really* need a unique prefix for all types and library functions,
